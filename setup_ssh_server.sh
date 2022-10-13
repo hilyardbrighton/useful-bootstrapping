@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 
 # Edit the SSH config file to use key authorization
-sudo if grep 'PasswordAuthentication' /etc/ssh/sshd_config; then sed '/PasswordAuthentication/c\PasswordAuthentication no' | tee /etc/ssh/sshd_config; else echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config; fi
+declare -a arr=("PasswordAuthentication" "ChallengeResponseAuthentication" "UsePAM")
+
+for i in "${arr[@]}"
+do
+
+	if grep "$i yes" /etc/ssh/sshd_config; then 
+		sed "/$i yes/c\\$i no\\" /etc/ssh/sshd_config | sudo tee /etc/ssh/sshd_config
+	elif grep "$i no" /etc/ssh/sshd_config; then
+		sed "/$i no/c\\$i no\\" /etc/ssh/sshd_config | sudo tee /etc/ssh/sshd_config
+	else 
+		sudo echo "$i no" >> /etc/ssh/sshd_config
+	fi
+done
 
 # Setup SSH Server
-sudo systemctl enable ssh
-sudo systemctl start ssh
+sudo service sshd start
 
 # Print Local IP Address
 echo "Local IP: "
