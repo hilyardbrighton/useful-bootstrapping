@@ -20,10 +20,6 @@ setup-ssh-client-1:
 	
 	bash ./generate_ssh_key.sh
 
-.PHONY: init-pihole-server
-init-pihole-server:
-	sudo bash pihole_setup.sh
-
 .PHONY: start-ssh-server
 start-ssh-server:
 	sudo service sshd start
