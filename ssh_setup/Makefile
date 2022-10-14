@@ -57,3 +57,6 @@ disable-ssh-server:
 	# This makes ssh not start on startup
 	sudo systemctl disable ssh
 
+.PHONY: remove-auth-keys
+remove-auth-keys:
+	sudo rm ~/.ssh/authorized_keys
