@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# Get Time
-CURRENT_TIME=$( date '+%F_%H:%M:%S' )
+echo -n "Enter username@host: "
+read inval
 
-# Generate SSH Key
-printf '%s\n' Y | ssh-keygen -t rsa -b 4096 -f ./mark-utility-box-1.ssh-server.key -P "mark-utility-box-1 $CURRENT_TIME"
+ssh-copy-id -i ~/.ssh/mark-utility-box-1.ssh-server.key.pub "$inval"
 
