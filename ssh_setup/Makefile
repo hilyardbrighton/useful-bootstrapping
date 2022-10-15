@@ -27,8 +27,8 @@ setup-password-auth-ssh-server:
 	sudo systemctl start ssh
 
 # This must be run on Client.
-.PHONY: setup-ssh-key-auth-client
-setup-ssh-key-auth-client:
+.PHONY: setup-key-auth-ssh-client
+setup-key-auth-ssh-client:
 	printf '%s\n' Y | ssh-keygen -t rsa -b 4096 -f ./mark-utility-box-1.ssh-server.key
 	sudo mv ./mark-utility-box-1.ssh-server.key ~/.ssh/ 
 	sudo mv ./mark-utility-box-1.ssh-server.key.pub ~/.ssh/ 
