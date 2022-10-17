@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -42,4 +43,3 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 colorscheme darkblue
-
