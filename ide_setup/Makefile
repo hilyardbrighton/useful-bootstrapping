@@ -10,8 +10,9 @@ install-atom:
 	sudo apt-get install -y atom
 
 
-.PHONY: install-texmaker
-install-texmaker:
-	sudo apt install -y texmaker 
+.PHONY: install-latex
+install-latex:
+	sudo apt install -y texlive-latex-extra
+	sudo apt install -y texstudio
 
 
