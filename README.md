@@ -1,2 +1,2 @@
-# mark-utility-box-1
-Bootstrap actions for setting up a home utility server.
+# useful-bootstrapping
+Bootstrap actions for setting up various different features on Ubuntu based machines.
